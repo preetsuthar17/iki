@@ -84,18 +84,12 @@ export function HourSection({
             const lines = textarea.value.split("\n");
             const currentLine = textarea.value.substring(0, cursorPosition).split("\n").length - 1;
 
-            // Arrow Up: Navigate to previous hour if at first line and cursor at start
             if (e.key === "ArrowUp" && currentLine === 0 && isAtStart) {
               e.preventDefault();
               onNavigateUp?.();
-              return;
-            }
-
-            // Arrow Down: Navigate to next hour if at last line and cursor at end
-            if (e.key === "ArrowDown" && currentLine === lines.length - 1 && isAtEnd) {
+            } else if (e.key === "ArrowDown" && currentLine === lines.length - 1 && isAtEnd) {
               e.preventDefault();
               onNavigateDown?.();
-              return;
             }
           }}
           placeholder={shouldShowPlaceholder ? "What's on your mind?" : ""}

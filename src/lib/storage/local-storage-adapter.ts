@@ -83,7 +83,6 @@ export class LocalStorageAdapter implements JournalStorage {
 
     const days: JournalDay[] = [];
 
-    // Iterate through all localStorage keys
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key && key.startsWith(STORAGE_PREFIX)) {
@@ -99,7 +98,6 @@ export class LocalStorageAdapter implements JournalStorage {
       }
     }
 
-    // Sort by date (newest first)
     return days.sort((a, b) => b.date.localeCompare(a.date));
   }
 }

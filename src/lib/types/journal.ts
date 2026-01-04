@@ -1,14 +1,14 @@
 export interface JournalEntry {
   id: string;
-  date: string; // YYYY-MM-DD format
-  hour: number; // 0-23
+  date: string;
+  hour: number;
   content: string;
-  createdAt: string; // ISO timestamp
-  updatedAt: string; // ISO timestamp
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface JournalDay {
-  date: string; // YYYY-MM-DD format
+  date: string;
   entries: JournalEntry[];
 }
 

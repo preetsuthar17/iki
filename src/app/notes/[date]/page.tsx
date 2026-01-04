@@ -22,7 +22,6 @@ export default function DateNotesPage() {
 
   useEffect(() => {
     if (!loading) {
-      // Focus first hour with content, or first hour if no content
       setFocusedHour(0);
     }
   }, [loading]);
@@ -32,9 +31,7 @@ export default function DateNotesPage() {
     setHoveredHour(null);
   };
 
-  const handleHourBlur = () => {
-    // Don't clear focus if we're moving to another hour
-  };
+  const handleHourBlur = () => {};
 
   const handleHourHover = (hour: number) => {
     if (focusedHour !== hour) {
@@ -48,16 +45,14 @@ export default function DateNotesPage() {
 
   const handleNavigateUp = (hour: number) => {
     if (hour > 0) {
-      const prevHour = hour - 1;
-      setFocusedHour(prevHour);
+      setFocusedHour(hour - 1);
       setHoveredHour(null);
     }
   };
 
   const handleNavigateDown = (hour: number) => {
     if (hour < 23) {
-      const nextHour = hour + 1;
-      setFocusedHour(nextHour);
+      setFocusedHour(hour + 1);
       setHoveredHour(null);
     }
   };

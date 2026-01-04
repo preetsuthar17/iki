@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useJournal } from "@/hooks/use-journal";
 import { HourSection } from "./hour-section";
 import { formatDate, formatDateDisplay } from "@/lib/utils/date";
@@ -35,10 +35,7 @@ export function JournalPage() {
     setHoveredHour(null);
   };
 
-  const handleHourBlur = () => {
-    // Don't clear focus if we're moving to another hour
-    // The focus will be set by handleHourFocus
-  };
+  const handleHourBlur = () => {};
 
   const handleHourHover = (hour: number) => {
     if (focusedHour !== hour) {
@@ -52,19 +49,15 @@ export function JournalPage() {
 
   const handleNavigateUp = (hour: number) => {
     if (hour > 0) {
-      const prevHour = hour - 1;
-      setFocusedHour(prevHour);
+      setFocusedHour(hour - 1);
       setHoveredHour(null);
-      // Focus will be handled by HourSection's useEffect when isFocused changes
     }
   };
 
   const handleNavigateDown = (hour: number) => {
     if (hour < 23) {
-      const nextHour = hour + 1;
-      setFocusedHour(nextHour);
+      setFocusedHour(hour + 1);
       setHoveredHour(null);
-      // Focus will be handled by HourSection's useEffect when isFocused changes
     }
   };
 

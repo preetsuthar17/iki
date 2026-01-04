@@ -72,25 +72,12 @@ export function useJournal(initialDate?: string) {
     [entries]
   );
 
-  const changeDate = useCallback(
-    (date: string) => {
-      setSelectedDate(date);
-    },
-    []
-  );
-
-  const goToToday = useCallback(() => {
-    setSelectedDate(formatDate(new Date()));
-  }, []);
-
   return {
     selectedDate,
     entries,
     loading,
     saveEntry,
     getEntryForHour,
-    changeDate,
-    goToToday,
   };
 }
 
