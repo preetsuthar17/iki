@@ -5,6 +5,7 @@ import { useJournal } from "@/hooks/use-journal";
 import { HourSection } from "./hour-section";
 import { formatDate, formatDateDisplay } from "@/lib/utils/date";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { ThemeSwitcher } from "@/components/ui/theme-switcher";
 import Link from "next/link";
 
 export function JournalPage() {
@@ -77,12 +78,15 @@ export function JournalPage() {
           <h1 className="text-2xl font-semibold">
             {formatDateDisplay(currentDate)}
           </h1>
-          <Link
-            href="/notes"
-            className="text-sm text-muted-foreground hover:text-foreground"
-          >
-            View Notes
-          </Link>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/notes"
+              className="text-sm text-muted-foreground hover:text-foreground"
+            >
+              View Notes
+            </Link>
+            <ThemeSwitcher />
+          </div>
         </div>
       </div>
 
